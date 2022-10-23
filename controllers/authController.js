@@ -1,5 +1,5 @@
-const Users = require('../models/Users')
-const jwt = require('jsonwebtoken')
+const Users = require("../models/Users")
+const jwt = require("jsonwebtoken")
 
 const refreshToken = async (req, res) => {
     try {
@@ -26,7 +26,7 @@ const refreshToken = async (req, res) => {
             res.json({accessToken})
         })
     } catch (error) {
-        console.error('has error occurred during refresh token')
+        console.error("has error occurred during refresh token")
         console.error(error)
     }
 }

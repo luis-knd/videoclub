@@ -10,7 +10,7 @@ Simple REST API implementation on Node.js + Express + MySQL + JWT for management
 
 ### Clone the project
 
-`git clone `
+`git clone https://github.com/luis-knd/videoclub.git` or `git clone git@github.com:luis-knd/videoclub.git` for ssh config
 
 ### Install dependencies
 
@@ -21,7 +21,6 @@ To install dependencies enter project folder and run following command:
 ### Configure the environment variables
 
 * Copy the file `.env.example` and renamed to `.env`
-* Edit the file `.env` with your access data.
 * Copy the file `config/config.json.example` and renamed to `config/config.json`
 * Edit both file `.env` and `config/config.json` with your access data.
 

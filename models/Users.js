@@ -3,7 +3,7 @@ const db = require("../config/database")
 
 const {DataTypes} = Sequelize
 
-const Users = db.define('users', {
+const Users = db.define("users", {
     name: {
         type: DataTypes.STRING
     },
@@ -19,7 +19,7 @@ const Users = db.define('users', {
 });
 
 (async () => {
-    await db.sync();
+    await db.sync()
 })()
 
 module.exports = Users

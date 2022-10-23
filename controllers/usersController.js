@@ -1,6 +1,6 @@
 const Users = require("../models/Users")
 const bcrypt = require("bcrypt")
-const jwt = require('jsonwebtoken')
+const jwt = require("jsonwebtoken")
 
 /**
  * List all users in the database
@@ -11,11 +11,11 @@ const jwt = require('jsonwebtoken')
 const index = async (req, res) => {
     try {
         const users = await Users.findAll({
-            attributes: ['id', 'name', 'email']
+            attributes: ["id", "name", "email"]
         })
         res.json(users)
     } catch (error) {
-        console.error('has error occurred to obtain the users.')
+        console.error("has error occurred to obtain the users.")
         console.error(error)
     }
 }
@@ -34,10 +34,10 @@ const register = async (req, res) => {
         }
     })
     if (user) {
-        return res.status(200).json({message: 'User already registered'})
+        return res.status(200).json({message: "User already registered"})
     }
     if (password !== confirmPassword) {
-        return res.status(400).json({message: 'Password and Confirm Password are different.'})
+        return res.status(400).json({message: "Password and Confirm Password are different."})
     }
     const salt = await bcrypt.genSalt()
     const hashPassword = await bcrypt.hash(password, salt)
@@ -47,9 +47,9 @@ const register = async (req, res) => {
             email: email,
             password: hashPassword
         })
-        res.status(201).json({message: 'Registration successful.'})
+        res.status(201).json({message: "Registration successful."})
     } catch (error) {
-        console.error('has error occurred to register the user.')
+        console.error("has error occurred to register the user.")
         console.error(error)
     }
 }
@@ -69,7 +69,7 @@ const login = async (req, res) => {
         })
         const match = await bcrypt.compare(req.body.password, user.password)
         if (!match) {
-            return res.status(400).json({message: 'Email or password invalid.'})
+            return res.status(400).json({message: "Email or password invalid."})
         }
         const userId = user.id
         const name = user.name
@@ -82,19 +82,19 @@ const login = async (req, res) => {
         const refreshToken = jwt.sign(
             {userId, name, email},
             process.env.REFRESH_TOKEN_SECRET,
-            {expiresIn: '1d'}
+            {expiresIn: "1d"}
         )
         await Users.update(
             {refresh_token: refreshToken},
             {where: {id: userId}}
         )
-        res.cookie('refreshToken', refreshToken, {
+        res.cookie("refreshToken", refreshToken, {
             httpOnly: true,
             maxAge: 24 * 60 * 60 * 1000
         })
         res.json({accessToken})
     } catch (error) {
-        console.error('has error occurred to login the user.')
+        console.error("has error occurred to login the user.")
         console.error(error)
     }
 }
@@ -120,7 +120,7 @@ const logout = async (req, res) => {
     await Users.update({refresh_token: null},
         {where: {id: userId}}
     )
-    res.clearCookie('refreshToken')
+    res.clearCookie("refreshToken")
     return res.sendStatus(200)
 }
 
