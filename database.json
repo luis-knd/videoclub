@@ -1,0 +1,21 @@
+{
+    "development": {
+        "driver": {
+            "ENV": "DB_DRIVER_NAME"
+        },
+        "host": {
+            "ENV": "DB_HOST"
+        },
+        "user": {
+            "ENV": "DB_USERNAME"
+        },
+        "password": {
+            "ENV": "DB_PASSWORD"
+        },
+        "multipleStatements": true
+    },
+    "test": {
+        "driver": "sqlite3",
+        "filename": ":memory:"
+    }
+}

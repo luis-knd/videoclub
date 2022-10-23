@@ -1,0 +1,24 @@
+{
+    "development": {
+        "username": "root",
+        "password": "",
+        "database": "videoclub",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    },
+    "production": {
+        "username": {
+            "ENV": "DB_USERNAME"
+        },
+        "password": {
+            "ENV": "DB_PASSWORD"
+        },
+        "database": {
+            "ENV": "DB_NAME"
+        },
+        "host": {
+            "ENV": "DB_HOST"
+        },
+        "dialect": "mysql"
+    }
+}
