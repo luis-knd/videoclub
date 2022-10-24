@@ -4,6 +4,8 @@ const path = require("path")
 const cookieParser = require("cookie-parser")
 const logger = require("morgan")
 const cors = require("cors")
+const swaggerUi = require("swagger-ui-express")
+const swaggerFile = require("./swagger_output.json")
 require("./config/database")
 const dotenv = require("dotenv").config()
 
@@ -35,6 +37,7 @@ app.use("/", indexRouter)
 app.use("/users", usersRouter)
 app.use("/auth", authRouter)
 app.use("/movies", movieRouter)
+app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

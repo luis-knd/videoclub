@@ -5,8 +5,8 @@
   "description": "Api para el control y manejo de peliculas",
   "main": "app.js",
   "scripts": {
-    "test": "npm test",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "swagger-autogen": "node swagger.js"
   },
   "keywords": [
     "video"
@@ -14,6 +14,7 @@
   "author": "Luis Candelario",
   "license": "ISC",
   "dependencies": {
+    "and": "^0.0.3",
     "axios": "^0.19.0",
     "bcrypt": "^5.1.0",
     "cookie-parser": "~1.4.4",
@@ -28,7 +29,9 @@
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11",
     "request": "^2.88.2",
-    "sequelize": "^6.25.3"
+    "sequelize": "^6.25.3",
+    "swagger-autogen": "^2.22.0",
+    "swagger-ui-express": "^4.5.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",

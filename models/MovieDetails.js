@@ -5,7 +5,7 @@ const Movie = require("../models/Movies")
 const {DataTypes} = Sequelize
 const MovieDetails = db.define("movie_details", {
     movie_id: {
-        type: DataTypes.FOREIGN,
+        type: DataTypes.INTEGER,
         reference: {
             model: Movie,
             key: "id"

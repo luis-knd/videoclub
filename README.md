@@ -26,3 +26,7 @@ To install dependencies enter project folder and run following command:
 
 * First You need the Database, create it executing this command `db-migrate db:create videoclub`.
 * Second create dummy users executing this command `npx sequelize-cli db:seed:all`
+
+### Docs and test API
+
+This app was documented using swagger, and you can, tried in this URL: http://localhost:3000/doc/
