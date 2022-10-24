@@ -1,7 +1,5 @@
 # API Videoclub
 
----
-
 Simple REST API implementation on Node.js + Express + MySQL + JWT for management a video-club
 
 ## 🚀️ First Steps
